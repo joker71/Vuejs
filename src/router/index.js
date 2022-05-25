@@ -76,7 +76,34 @@ export const constantRoutes = [
       }
     ]
   },
-
+  {
+    path: '/product',
+    component: Layout,
+    redirect: '/product/list',
+    name: 'Product',
+    meta: { title: 'Product', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: 'Products',
+        component: () => import('@/views/product/index'),
+        meta: { title: 'Products', icon: 'table' }
+      },
+      {
+        path: 'add',
+        name: 'Add Product',
+        component: () => import('@/views/product/add'),
+        meta: { title: 'Add Products', icon: 'tree' }
+      },
+      {
+        path: 'details/:id',
+        name: 'Product',
+        component: () => import('@/views/product/details'),
+        meta: { title: 'Product', icon: 'tree' },
+        hidden: true
+      }
+    ]
+  },
   {
     path: '/form',
     component: Layout,
