@@ -13,8 +13,8 @@ class CustomerService {
     return http.post('/customer/post', data)
   }
 
-  getListOrder(customerId) {
-    return http.put(`/order/get/${customerId}`)
+  getListOrder(customerId, req) {
+    return http.get(`/order/get/${customerId}`, { params: req })
   }
 }
 
