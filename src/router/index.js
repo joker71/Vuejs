@@ -105,6 +105,28 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/customer',
+    component: Layout,
+    redirect: '/customer/list',
+    name: 'Customer',
+    meta: { title: 'Customer', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: 'Customers',
+        component: () => import('@/views/customer/customers'),
+        meta: { title: 'Customer', icon: 'table' }
+      },
+      {
+        path: 'details/:id',
+        name: 'Infor',
+        component: () => import('@/views/customer/details'),
+        meta: { title: 'Infor', icon: 'tree' },
+        hidden: true
+      }
+    ]
+  },
+  {
     path: '/form',
     component: Layout,
     children: [

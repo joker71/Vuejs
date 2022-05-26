@@ -20,16 +20,10 @@
           <span>{{ row.title }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Phân loại" prop="catalogue" align="center" width="240">
+      <el-table-column label="Phân loại" prop="catalogue" align="center" width="160">
         <template slot-scope="{row}">
           <span v-if = "row.catalogue !== null">{{ row.catalogue.catalogue_name }}</span>
           <span v-else>Chưa phân loại</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="Ngôn ngữ" prop="language" align="center" width="160">
-        <template slot-scope="{row}">
-          <span v-if = "row.language !== null">{{ row.language.language_name }}</span>
-          <span v-else>Chua phan loai</span>
         </template>
       </el-table-column>
       <el-table-column label="Tác giả" prop="language" align="center" width="240">
@@ -52,6 +46,19 @@
         <template slot-scope="{row}">
           <span>{{ row.isbn13 }}</span>
         </template>
+      </el-table-column>
+      <el-table-column label="Actions" prop="address" align="center">
+        <div>
+          <b-button variant="info" class="m-2">
+            <b-icon icon="view-list" style="color: white" ></b-icon>
+          </b-button>
+          <b-button variant="success" class="m-2">
+            <b-icon icon="pen" style="color: white" ></b-icon>
+          </b-button>
+          <b-button variant="danger" class="m-2">
+            <b-icon icon="trash" style="color: white" ></b-icon>
+          </b-button>
+        </div>
       </el-table-column>
     </el-table>
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.size" name="pagination" @pagination="loadPage"/>
