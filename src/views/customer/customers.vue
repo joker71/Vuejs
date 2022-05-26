@@ -40,13 +40,15 @@
         </template>
       </el-table-column>
       <el-table-column label="Actions" prop="address" align="center">
-        <div>
-          <b-button variant="info" class="m-2">
-            <b-icon icon="view-list" style="color: white" ></b-icon>
-          </b-button>
-          <b-button variant="success" class="m-2">
-            <b-icon icon="cart3" style="color: white" ></b-icon>
-          </b-button>
+        <div slot-scope="{row}">
+            <router-link :to="'/customer/details/' + row.customer_id" class="link-type">
+              <b-button variant="info" class="m-2">
+                <b-icon icon="view-list" style="color: white" ></b-icon>
+              </b-button>
+            </router-link>
+            <b-button variant="success" class="m-2">
+              <b-icon icon="cart3" style="color: white" ></b-icon>
+            </b-button>
         </div>
       </el-table-column>
     </el-table>
@@ -89,6 +91,7 @@ export default {
           this.list = res.data['content']
           this.listLoading = false
           this.total = res.data['totalElements']
+          console.log(this.list)
         })
         .catch(e => {
           console.log(e)
@@ -96,7 +99,7 @@ export default {
         })
     }
   },
-  created() {
+  mounted() {
     this.loadList()
   }
 }

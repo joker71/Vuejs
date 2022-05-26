@@ -89,7 +89,7 @@ export default {
       }
     }
   },
-  created() {
+  mounted() {
     this.loadPage()
   },
   methods: {

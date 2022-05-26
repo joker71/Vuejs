@@ -30,7 +30,7 @@ export default {
       data: null
     }
   },
-  created() {
+  mounted() {
     this.url_id = this.$route.params && this.$route.params.id
     DataService.getById(this.url_id)
       .then((res) => {
